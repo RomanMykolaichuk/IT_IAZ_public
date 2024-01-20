@@ -1,5 +1,7 @@
 -- Active: 1705064804951@@127.0.0.1@5432@postgres@public
 -- Вибірка всіх записів
+5209
+
 SELECT * FROM sampe;
 -- Вибірка записів з умовою WHERE
 SELECT * FROM sampe WHERE Document = 'Document 7';
