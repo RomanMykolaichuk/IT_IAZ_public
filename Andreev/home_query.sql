@@ -4,13 +4,13 @@
 
 SELECT * FROM erampe;
 -- Вибірка записів з умовою WHERE
-SELECT * FROM erampe WHERE Document = 'Document 7';
+SELECT * FROM erampe WHERE Document = 'DALLocument 7';
 -- Оновлення значення в стовпчику "Description"
-UPDATE erampe SET Description = 'New Description' WHERE Document = 'Document 7';
+UPDATE erampe SET Description = 'New Description' WHERE Document = 'DALLocument 7';
 -- Вставка нового запису
 INSERT INTO erampe (Document, Description, Column3, Column4) VALUES ('New Document', 'New Description', 3, 22);
 -- Видалення запису за певною умовою
-DELETE FROM erampe WHERE Document = 'Document 7';
+DELETE FROM erampe WHERE Document = 'DALLocument 7';
 -- Вибірка конкретних стовпчиків для всіх записів
 SELECT Document, Description FROM erampe;
 -- Вибірка унікальних значень в стовпчику "Column3"
