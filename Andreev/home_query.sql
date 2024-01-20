@@ -2,43 +2,43 @@
 -- Вибірка всіх записів
 5209
 
-SELECT * FROM sampe;
+SELECT * FROM erampe;
 -- Вибірка записів з умовою WHERE
-SELECT * FROM sampe WHERE Document = 'Document 7';
+SELECT * FROM erampe WHERE Document = 'Document 7';
 -- Оновлення значення в стовпчику "Description"
-UPDATE sampe SET Description = 'New Description' WHERE Document = 'Document 7';
+UPDATE erampe SET Description = 'New Description' WHERE Document = 'Document 7';
 -- Вставка нового запису
-INSERT INTO sampe (Document, Description, Column3, Column4) VALUES ('New Document', 'New Description', 3, 22);
+INSERT INTO erampe (Document, Description, Column3, Column4) VALUES ('New Document', 'New Description', 3, 22);
 -- Видалення запису за певною умовою
-DELETE FROM sampe WHERE Document = 'Document 7';
+DELETE FROM erampe WHERE Document = 'Document 7';
 -- Вибірка конкретних стовпчиків для всіх записів
-SELECT Document, Description FROM sampe;
+SELECT Document, Description FROM erampe;
 -- Вибірка унікальних значень в стовпчику "Column3"
-SELECT DISTINCT Column3 FROM sampe;
+SELECT DISTINCT Column3 FROM erampe;
 -- Вибірка кількості записів за певною умовою
-SELECT COUNT(*) FROM sampe WHERE Column3 > 5;
+SELECT COUNT(*) FROM erampe WHERE Column3 > 5;
 -- Сортування результатів за зростанням у стовпчику "Description"
-SELECT * FROM sampe ORDER BY Description ASC;
+SELECT * FROM erampe ORDER BY Description ASC;
 -- Групування та виведення кількості записів за значеннями в стовпчику "Column3"
-SELECT Column3, COUNT(*) as Count FROM sampe GROUP BY Column3;
+SELECT Column3, COUNT(*) as Count FROM erampe GROUP BY Column3;
 -- Вибірка записів з об'єднанням таблиць за певною умовою
-SELECT * FROM sampe
-INNER JOIN other_table ON sampe.Document = other_table.Document;
+SELECT * FROM erampe
+INNER JOIN other_table ON erampe.Document = other_table.Document;
 -- Вибірка середнього значення у стовпчику "Column4"
-SELECT AVG(Column4) as AvgColumn4 FROM sampe;
+SELECT AVG(Column4) as AvgColumn4 FROM erampe;
 -- Обмеження кількості повернутих записів
-SELECT * FROM sampe LIMIT 10;
+SELECT * FROM erampe LIMIT 10;
 -- Вибірка записів, які відповідають певному шаблону в стовпчику "Description"
-SELECT * FROM sampe WHERE Description LIKE '%search_term%';
+SELECT * FROM erampe WHERE Description LIKE '%search_term%';
 -- Вибірка максимального значення у стовпчику "Column3" за групами
-SELECT Column3, MAX(Column3) as MaxColumn3 FROM sampe GROUP BY Column3;
+SELECT Column3, MAX(Column3) as MaxColumn3 FROM erampe GROUP BY Column3;
 -- Вибірка записів, які відповідають певній умові відносно двох стовпчиків
-SELECT * FROM sampe WHERE Column3 > 5 AND Column4 < 20;
+SELECT * FROM erampe WHERE Column3 > 5 AND Column4 < 20;
 -- Вибірка кількості записів, які мають непорожнє значення в стовпчику "Description"
-SELECT COUNT(*) FROM sampe WHERE Description IS NOT NULL;
+SELECT COUNT(*) FROM erampe WHERE Description IS NOT NULL;
 -- Оновлення значення в одному стовпчику на основі значення в іншому стовпчику
-UPDATE sampe SET Column4 = Column4 * 1.1 WHERE Column3 > 5;
+UPDATE erampe SET Column4 = Column4 * 1.1 WHERE Column3 > 5;
 -- Видалення дублікатів на основі значення стовпчика "Document"
-DELETE s1 FROM sampe s1, sampe s2 WHERE s1.Document = s2.Document AND s1.id > s2.id;
+DELETE s1 FROM erampe s1, erampe s2 WHERE s1.Document = s2.Document AND s1.id > s2.id;
 -- Вибірка найменшого значення в стовпчику "Column4" за умови, що значення у стовпчику "Column3" менше 10
-SELECT MIN(Column4) as MinColumn4 FROM sampe WHERE Column3 < 10;
+SELECT MIN(Column4) as MinColumn4 FROM erampe WHERE Column3 < 10;
