@@ -1,0 +1,49 @@
+body {
+    background-color: #444A38;
+    color: white;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+h1, h2 {
+    color: #f39201;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table, th, td {
+    border: 1px solid #f39201;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    background-color: #f39201;
+    color: #444A38;
+}
+
+tr:nth-child(even) {
+    background-color: #f39201;
+    color: #444A38;
+}
+
+.btn-complete, .btn-delete {
+    background-color: #f39201;
+    color: #444A38;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.btn-complete:hover, .btn-delete:hover {
+    background-color: #444A38;
+    color: #f39201;
+}

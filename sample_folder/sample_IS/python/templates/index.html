@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Список завдань</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+
+</head>
+<body>
+    <h1>Список завдань</h1>
+
+    <h2>Категорії</h2>
+    <ul>
+        {% for category in categories %}
+            <li>{{ category.category_name }}</li>
+        {% endfor %}
+    </ul>
+
+    <h2>Завдання</h2>
+    <table border="1">
+        <tr>
+            <th>Назва завдання</th>
+            <th>Опис завдання</th>
+            <th>Дата завершення</th>
+            <th>Статус</th>
+            <th>Завершити</th>
+            <th>Видалити</th>
+        </tr>
+        {% for task in tasks %}
+            <tr>
+                <td>{{ task.task_name }}</td>
+                <td>{{ task.task_description }}</td>
+                <td>{{ task.due_date }}</td>
+                <td>
+                    {% if task.completed %}
+                        <span style="color: green;">Завершено</span>
+                    {% else %}
+                        <span style="color: red;">Не завершено</span>
+                    {% endif %}
+                </td>
+                <td>
+                    <form method="POST" action="/complete_task/{{ task.task_id }}">
+                        <button type="submit">Виконано</button>
+                    </form>
+                </td>
+                <td>
+                    <form method="POST" action="/delete_task/{{ task.task_id }}">
+                        <button type="submit">Видалити</button>
+                    </form>
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+
+    <form method="POST" action="/add_task">
+        <label for="category_id">Оберіть категорію:</label>
+        <select name="category_id">
+            {% for category in categories %}
+                <option value="{{ category.category_id }}">{{ category.category_name }}</option>
+            {% endfor %}
+        </select>
+        <br>
+        <label for="task_name">Назва завдання:</label>
+        <input type="text" name="task_name" required>
+        <br>
+        <label for="task_description">Опис завдання:</label>
+        <input type="text" name="task_description">
+        <br>
+        <label for="due_date">Дата завершення:</label>
+        <input type="date" name="due_date">
+        <br>
+        <button type="submit">Додати завдання</button>
+    </form>
+</body>
+</html>
